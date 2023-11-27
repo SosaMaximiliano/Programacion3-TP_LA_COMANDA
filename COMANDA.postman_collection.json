@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b425a35c-e6a5-495c-80f9-bb3286b58e05",
+		"_postman_id": "c6bce6b3-781f-45e6-a14f-4e81d9d65315",
 		"name": "COMANDA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29694268"
@@ -17,7 +17,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODg4MzEsImV4cCI6MTcwMDY0ODgzMSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.Lcj9hMf1028RGwAQdKiD72Cl6z_9_E1uOGv0vQ2em6M",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -29,12 +29,12 @@
 							"formdata": [
 								{
 									"key": "Nombre",
-									"value": "Chuck",
+									"value": "Nikola",
 									"type": "text"
 								},
 								{
 									"key": "Apellido",
-									"value": "Norris",
+									"value": "Tesla",
 									"type": "text"
 								},
 								{
@@ -45,30 +45,26 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/empleado_alta",
-							"protocol": "http",
+							"raw": "{{socio}}empleado/alta",
 							"host": [
-								"localhost"
+								"{{socio}}empleado"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"empleado_alta"
+								"alta"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "AltaMesa",
+					"name": "CrearMesa",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODg4MzEsImV4cCI6MTcwMDY0ODgzMSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.Lcj9hMf1028RGwAQdKiD72Cl6z_9_E1uOGv0vQ2em6M",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -80,16 +76,12 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/mesa_alta",
-							"protocol": "http",
+							"raw": "{{socio}}mesa/crear",
 							"host": [
-								"localhost"
+								"{{socio}}mesa"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"mesa_alta"
+								"crear"
 							]
 						}
 					},
@@ -103,7 +95,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTA3NzksImV4cCI6MTcwMDU1MDc3OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6mltzgfsRE2BfeKHUXks4SbMdaLQJSMsOKntU67Cn20",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -136,16 +128,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/producto_alta",
-							"protocol": "http",
+							"raw": "{{socio}}producto/alta",
 							"host": [
-								"localhost"
+								"{{socio}}producto"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"producto_alta"
+								"alta"
 							]
 						}
 					},
@@ -159,7 +147,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODg4MzEsImV4cCI6MTcwMDY0ODgzMSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.Lcj9hMf1028RGwAQdKiD72Cl6z_9_E1uOGv0vQ2em6M",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -168,7 +156,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"ID\": 14,\n\"Sector\": \"Cocinero\"\n}",
+							"raw": "{\n\"ID\": 30,\n\"Sector\": \"Cervecero\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -176,16 +164,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/empleado_asignarsector",
-							"protocol": "http",
+							"raw": "{{socio}}empleado/asignarsector",
 							"host": [
-								"localhost"
+								"{{socio}}empleado"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"empleado_asignarsector"
+								"asignarsector"
 							]
 						}
 					},
@@ -199,7 +183,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODg4MzEsImV4cCI6MTcwMDY0ODgzMSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.Lcj9hMf1028RGwAQdKiD72Cl6z_9_E1uOGv0vQ2em6M",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -207,16 +191,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/empleado_listar",
-							"protocol": "http",
+							"raw": "{{socio}}empleado/listar",
 							"host": [
-								"localhost"
+								"{{socio}}empleado"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"empleado_listar"
+								"listar"
 							]
 						}
 					},
@@ -233,7 +213,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTA3NzksImV4cCI6MTcwMDU1MDc3OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6mltzgfsRE2BfeKHUXks4SbMdaLQJSMsOKntU67Cn20",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -245,21 +225,17 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/empleado_listarporsector?Sector=Mozo",
-							"protocol": "http",
+							"raw": "{{socio}}empleado/listarporsector?Sector=Bartender",
 							"host": [
-								"localhost"
+								"{{socio}}empleado"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"empleado_listarporsector"
+								"listarporsector"
 							],
 							"query": [
 								{
 									"key": "Sector",
-									"value": "Mozo"
+									"value": "Bartender"
 								}
 							]
 						}
@@ -274,7 +250,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTA3NzksImV4cCI6MTcwMDU1MDc3OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6mltzgfsRE2BfeKHUXks4SbMdaLQJSMsOKntU67Cn20",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -282,16 +258,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/cliente_listar",
-							"protocol": "http",
+							"raw": "{{socio}}cliente_listar",
 							"host": [
-								"localhost"
-							],
-							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"cliente_listar"
+								"{{socio}}cliente_listar"
 							]
 						}
 					},
@@ -305,7 +274,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODg4MzEsImV4cCI6MTcwMDY0ODgzMSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.Lcj9hMf1028RGwAQdKiD72Cl6z_9_E1uOGv0vQ2em6M",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTAzMjYsImV4cCI6MTcwMTE1MDMyNiwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiIkMnkkMTAkdWp6bXdtWGYybDRIMmdLdVplVTdTT0suNlc4Z21hZmZQakZ0aENIMnUyY05zRzFxelZsbTIiLCJTZWN0b3IiOiJTb2NpbyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.07AtoW2V1JUTapWDZzPqzbLdzL0GO56RzhEiGzSxij4",
 									"type": "string"
 								}
 							]
@@ -317,16 +286,12 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/admin/empleado_baja?ID=10",
-							"protocol": "http",
+							"raw": "{{socio}}empleado/baja?ID=10",
 							"host": [
-								"localhost"
+								"{{socio}}empleado"
 							],
 							"path": [
-								"COMANDA",
-								"app",
-								"admin",
-								"empleado_baja"
+								"baja"
 							],
 							"query": [
 								{
@@ -354,7 +319,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1OTA3NjgsImV4cCI6MTcwMDY1MDc2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjksIk5vbWJyZSI6IkNsaW50IiwiQXBlbGxpZG8iOiJFYXN0d29vZCIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.ferlTGFkmLScWRSYQJMB-vG74wyKVmL2P_FKqLS3BxQ",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -363,7 +328,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"Productos\": \n[\n    {\"Producto\" : \"15\",\"Cantidad\" : \"3\"},\n    {\"Producto\" : \"22\",\"Cantidad\" : \"5\"},\n    {\"Producto\" : \"16\",\"Cantidad\" : \"3\"},\n    {\"Producto\" : \"19\",\"Cantidad\" : \"2\"},\n    {\"Producto\" : \"20\",\"Cantidad\" : \"3\"}\n],\n  \"ID_Mesa\": 12\n}\n",
+									"raw": "{\n  \"Productos\": \n[\n    {\"ID_Producto\" : \"15\",\"Cantidad\" : \"3\"},\n    {\"ID_Producto\" : \"22\",\"Cantidad\" : \"5\"},\n    {\"ID_Producto\" : \"16\",\"Cantidad\" : \"3\"},\n    {\"ID_Producto\" : \"19\",\"Cantidad\" : \"2\"},\n    {\"ID_Producto\" : \"20\",\"Cantidad\" : \"3\"}\n],\n  \"ID_Mesa\": 20\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -371,30 +336,27 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/pedido_alta",
-									"protocol": "http",
+									"raw": "{{url}}empleado/pedido/alta",
 									"host": [
-										"localhost"
+										"{{url}}empleado"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"pedido_alta"
+										"pedido",
+										"alta"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "AbrirMesa",
+							"name": "AltaMesa",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1OTA3NjgsImV4cCI6MTcwMDY1MDc2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjksIk5vbWJyZSI6IkNsaW50IiwiQXBlbGxpZG8iOiJFYXN0d29vZCIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.ferlTGFkmLScWRSYQJMB-vG74wyKVmL2P_FKqLS3BxQ",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -406,27 +368,23 @@
 									"formdata": [
 										{
 											"key": "ID_Mesa",
-											"value": "11",
+											"value": "19",
 											"type": "text"
 										},
 										{
 											"key": "ID_Pedido",
-											"value": "36",
+											"value": "50",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/mesa_abrir",
-									"protocol": "http",
+									"raw": "{{empleado}}mesa/alta",
 									"host": [
-										"localhost"
+										"{{empleado}}mesa"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"mesa_abrir"
+										"alta"
 									]
 								}
 							},
@@ -440,7 +398,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1OTA3NjgsImV4cCI6MTcwMDY1MDc2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjksIk5vbWJyZSI6IkNsaW50IiwiQXBlbGxpZG8iOiJFYXN0d29vZCIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.ferlTGFkmLScWRSYQJMB-vG74wyKVmL2P_FKqLS3BxQ",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -452,22 +410,18 @@
 									"formdata": [
 										{
 											"key": "ID_Mesa",
-											"value": "11",
+											"value": "19",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/comanda_alta",
-									"protocol": "http",
+									"raw": "{{empleado}}comanda/alta",
 									"host": [
-										"localhost"
+										"{{empleado}}comanda"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"comanda_alta"
+										"alta"
 									]
 								}
 							},
@@ -481,7 +435,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTEzOTUsImV4cCI6MTcwMDU1MTM5NSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6IkJydWNlIiwiQXBlbGxpZG8iOiJXYXluZSIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.W0Q0KYRSEGMHUxp83OFcu5kdSAqVy6vQZj-cycjQaDE",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -527,7 +481,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODY0NjMsImV4cCI6MTcwMDY0NjQ2MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.83pSR6DUVSGIp7wiUgskHA6_6k2189djgrP8xvKvyiA",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -544,16 +498,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/mesa_cambiarestado",
-									"protocol": "http",
+									"raw": "{{empleado}}mesa/cambiarestado",
 									"host": [
-										"localhost"
+										"{{empleado}}mesa"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"mesa_cambiarestado"
+										"cambiarestado"
 									]
 								}
 							},
@@ -567,7 +517,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODY0NjMsImV4cCI6MTcwMDY0NjQ2MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.83pSR6DUVSGIp7wiUgskHA6_6k2189djgrP8xvKvyiA",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -584,16 +534,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/pedido_cambiarestado",
-									"protocol": "http",
+									"raw": "{{empleado}}pedido/cambiarestado",
 									"host": [
-										"localhost"
+										"{{empleado}}pedido"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"pedido_cambiarestado"
+										"cambiarestado"
 									]
 								}
 							},
@@ -607,7 +553,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1OTA3NjgsImV4cCI6MTcwMDY1MDc2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjksIk5vbWJyZSI6IkNsaW50IiwiQXBlbGxpZG8iOiJFYXN0d29vZCIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.ferlTGFkmLScWRSYQJMB-vG74wyKVmL2P_FKqLS3BxQ",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -615,16 +561,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/pedido_listar",
-									"protocol": "http",
+									"raw": "{{empleado}}pedido/listar",
 									"host": [
-										"localhost"
+										"{{empleado}}pedido"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"pedido_listar"
+										"listar"
 									]
 								}
 							},
@@ -638,7 +580,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTEzOTUsImV4cCI6MTcwMDU1MTM5NSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6IkJydWNlIiwiQXBlbGxpZG8iOiJXYXluZSIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.W0Q0KYRSEGMHUxp83OFcu5kdSAqVy6vQZj-cycjQaDE",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -646,16 +588,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/producto_listar",
-									"protocol": "http",
+									"raw": "{{empleado}}producto/listar",
 									"host": [
-										"localhost"
+										"{{empleado}}producto"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"producto_listar"
+										"listar"
 									]
 								}
 							},
@@ -669,7 +607,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODY0NjMsImV4cCI6MTcwMDY0NjQ2MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.83pSR6DUVSGIp7wiUgskHA6_6k2189djgrP8xvKvyiA",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -677,16 +615,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/mesa_listar",
-									"protocol": "http",
+									"raw": "{{empleado}}mesa/listar",
 									"host": [
-										"localhost"
+										"{{empleado}}mesa"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"mesa_listar"
+										"listar"
 									]
 								}
 							},
@@ -700,7 +634,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTEzOTUsImV4cCI6MTcwMDU1MTM5NSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6IkJydWNlIiwiQXBlbGxpZG8iOiJXYXluZSIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.W0Q0KYRSEGMHUxp83OFcu5kdSAqVy6vQZj-cycjQaDE",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
 											"type": "string"
 										}
 									]
@@ -708,16 +642,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/producto_buscarporid",
-									"protocol": "http",
+									"raw": "{{empleado}}producto/buscarporid",
 									"host": [
-										"localhost"
+										"{{empleado}}producto"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"producto_buscarporid"
+										"buscarporid"
 									]
 								}
 							},
@@ -739,16 +669,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/producto_buscarpornombre",
-									"protocol": "http",
+									"raw": "{{empleado}}producto/buscarpornombre",
 									"host": [
-										"localhost"
+										"{{empleado}}producto"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"producto_buscarpornombre"
+										"buscarpornombre"
 									]
 								}
 							},
@@ -871,16 +797,12 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/COMANDA/app/empleado/pedido_traerpedido?ID=30",
-									"protocol": "http",
+									"raw": "{{empleado}}pedido/traerpedido?ID=30",
 									"host": [
-										"localhost"
+										"{{empleado}}pedido"
 									],
 									"path": [
-										"COMANDA",
-										"app",
-										"empleado",
-										"pedido_traerpedido"
+										"traerpedido"
 									],
 									"query": [
 										{
@@ -891,85 +813,279 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "TomarFoto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Imagen",
+											"type": "file",
+											"src": "/home/max/Descargas/H.jpeg"
+										},
+										{
+											"key": "ID_Pedido",
+											"value": "12",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{empleado}}pedido/cargarimagen",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"cargarimagen"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
 				{
-					"name": "ListarPedidosPorSector",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA0OTEzOTUsImV4cCI6MTcwMDU1MTM5NSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjEsIk5vbWJyZSI6IkJydWNlIiwiQXBlbGxpZG8iOiJXYXluZSIsIkNsYXZlIjoiNTE1IiwiU2VjdG9yIjoiTW96byJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.W0Q0KYRSEGMHUxp83OFcu5kdSAqVy6vQZj-cycjQaDE",
-									"type": "string"
+					"name": "COCINEROS",
+					"item": [
+						{
+							"name": "ListarPedidosPorSector",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc2ODMsImV4cCI6MTcwMTE3NzY4MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6VmXhdotdjs9TwFZ3myHOZCq7Vfp8CCDnmggBKvAV5Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{empleado}}pedido/listarporsector?Sector=Cocinero",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"listarporsector"
+									],
+									"query": [
+										{
+											"key": "Sector",
+											"value": "Cocinero"
+										}
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/COMANDA/app/empleado/pedido_listarporsector?Sector=Cervecero",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"COMANDA",
-								"app",
-								"empleado",
-								"pedido_listarporsector"
-							],
-							"query": [
-								{
-									"key": "Sector",
-									"value": "Cervecero"
+						{
+							"name": "CambiarEstadoPorSector",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc2ODMsImV4cCI6MTcwMTE3NzY4MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6VmXhdotdjs9TwFZ3myHOZCq7Vfp8CCDnmggBKvAV5Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ID_Pedido\":\"54\",\n    \"Sector\":\"Cocinero\",\n    \"Estado\":\"En preparacion\",\n    \"Tiempo\":\"00:54\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado}}pedido/cambiarestadoporsector",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"cambiarestadoporsector"
+									]
 								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "CambiarEstadoPorSector",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDA1ODg4MzEsImV4cCI6MTcwMDY0ODgzMSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjQsIk5vbWJyZSI6Ik1vZSIsIkFwZWxsaWRvIjoiSG93YXJkIiwiQ2xhdmUiOiJwYXNzMTIzNCIsIlNlY3RvciI6IlNvY2lvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.Lcj9hMf1028RGwAQdKiD72Cl6z_9_E1uOGv0vQ2em6M",
-									"type": "string"
+					"name": "BARTENDERS",
+					"item": [
+						{
+							"name": "ListarPedidosPorSector",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc1NjgsImV4cCI6MTcwMTE3NzU2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.9wxlBVaiOR6HAm9UVJK80zr6Eh2YJzuHuaEsue6v7H8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{empleado}}pedido/listarporsector?Sector=Bartender",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"listarporsector"
+									],
+									"query": [
+										{
+											"key": "Sector",
+											"value": "Bartender"
+										}
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"ID_Pedido\":\"36\",\n    \"Sector\":\"Cocinero\",\n    \"Estado\":\"Listo para servir\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "CambiarEstadoPorSector",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc1NjgsImV4cCI6MTcwMTE3NzU2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.9wxlBVaiOR6HAm9UVJK80zr6Eh2YJzuHuaEsue6v7H8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ID_Pedido\":\"54\",\n    \"Sector\":\"Bartender\",\n    \"Estado\":\"En preparacion\",\n    \"Tiempo\":\"00:15\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado}}pedido/cambiarestadoporsector",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"cambiarestadoporsector"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost/COMANDA/app/empleado/pedido_cambiarestadoporsector",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"COMANDA",
-								"app",
-								"empleado",
-								"pedido_cambiarestadoporsector"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "CERVECEROS",
+					"item": [
+						{
+							"name": "ListarPedidosPorSector",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc3ODgsImV4cCI6MTcwMTE3Nzc4OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjMwLCJOb21icmUiOiJUb20iLCJBcGVsbGlkbyI6IllvcmsiLCJDbGF2ZSI6IiQyeSQxMCRUL1kzZ0dGaFBCUzB0cHkuTU50TlAuU0hQQWlTMk02MjEyLjR0QUo1MHplSDFxVy43WUlpNiIsIlNlY3RvciI6IkNlcnZlY2VybyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.-eU8TQ2KHobHlkJ-Pm4go2rcBo1vHXcqqGAixAdrpc0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{empleado}}pedido/listarporsector?Sector=Cervecero",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"listarporsector"
+									],
+									"query": [
+										{
+											"key": "Sector",
+											"value": "Cervecero"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CambiarEstadoPorSector",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc3ODgsImV4cCI6MTcwMTE3Nzc4OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjMwLCJOb21icmUiOiJUb20iLCJBcGVsbGlkbyI6IllvcmsiLCJDbGF2ZSI6IiQyeSQxMCRUL1kzZ0dGaFBCUzB0cHkuTU50TlAuU0hQQWlTMk02MjEyLjR0QUo1MHplSDFxVy43WUlpNiIsIlNlY3RvciI6IkNlcnZlY2VybyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.-eU8TQ2KHobHlkJ-Pm4go2rcBo1vHXcqqGAixAdrpc0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ID_Pedido\":\"54\",\n    \"Sector\":\"Cervecero\",\n    \"Estado\":\"En preparacion\",\n    \"Tiempo\":\"00:08\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado}}pedido/cambiarestadoporsector",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"cambiarestadoporsector"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -986,7 +1102,7 @@
 							"formdata": [
 								{
 									"key": "ID_Comanda",
-									"value": "10",
+									"value": "12",
 									"type": "text"
 								},
 								{
@@ -1017,16 +1133,9 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost/COMANDA/app/usuario/cliente_encuesta",
-							"protocol": "http",
+							"raw": "{{cliente}}encuesta",
 							"host": [
-								"localhost"
-							],
-							"path": [
-								"COMANDA",
-								"app",
-								"usuario",
-								"cliente_encuesta"
+								"{{cliente}}encuesta"
 							]
 						}
 					},
@@ -1038,21 +1147,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/COMANDA/app/usuario/cliente_pedido?Clave Unica=8NW1K",
-							"protocol": "http",
+							"raw": "{{cliente}}pedido?CodigoUnico=N1N2C",
 							"host": [
-								"localhost"
-							],
-							"path": [
-								"COMANDA",
-								"app",
-								"usuario",
-								"cliente_pedido"
+								"{{cliente}}pedido"
 							],
 							"query": [
 								{
-									"key": "Clave Unica",
-									"value": "8NW1K"
+									"key": "CodigoUnico",
+									"value": "N1N2C"
 								}
 							]
 						}
@@ -1071,12 +1173,17 @@
 					"formdata": [
 						{
 							"key": "ID",
-							"value": "4",
+							"value": "17",
 							"type": "text"
 						},
 						{
 							"key": "Clave",
-							"value": "pass1234",
+							"value": "515",
+							"type": "text"
+						},
+						{
+							"key": "Sector",
+							"value": "Bartender",
 							"type": "text"
 						}
 					]
@@ -1095,6 +1202,24 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost/Programacion3-TP_LA_COMANDA/app/"
+		},
+		{
+			"key": "socio",
+			"value": "http://localhost/Programacion3-TP_LA_COMANDA/app/socio/"
+		},
+		{
+			"key": "empleado",
+			"value": "http://localhost/Programacion3-TP_LA_COMANDA/app/empleado/"
+		},
+		{
+			"key": "cliente",
+			"value": "http://localhost/Programacion3-TP_LA_COMANDA/app/cliente/"
 		}
 	]
 }

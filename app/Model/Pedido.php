@@ -144,7 +144,6 @@ class Pedido
         foreach ($pedidos as $pedido)
         {
             $productos = json_decode($pedido->Productos);
-            $idPedido = $pedido->ID;
             foreach ($productos as $producto)
             {
                 $psector[] = $producto;
