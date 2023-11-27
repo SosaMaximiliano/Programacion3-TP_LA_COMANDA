@@ -23,22 +23,18 @@ class CPedido
         {
             if (Mesa::MesaLibre($idMesa))
             {
-                #REVISO QUE HAYA STOCK DEL PRODUCTO
-                if (Producto::HayStock($productos))
+                try
                 {
-                    try
-                    {
-                        Pedido::AltaPedido($productos, $idMesa);
-                        $payload = json_encode("Pedido creado");
-                        $response->getBody()->write($payload);
-                        return $response->withHeader('Content-Type', 'application/json');
-                    }
-                    catch (Exception $e)
-                    {
-                        $payload = json_encode("No se pudo tomar el pedido. {$e->getMessage()}");
-                        $response->getBody()->write($payload);
-                        return $response->withHeader('Content-Type', 'application/json');
-                    }
+                    Pedido::AltaPedido($productos, $idMesa);
+                    $payload = json_encode("Pedido creado");
+                    $response->getBody()->write($payload);
+                    return $response->withHeader('Content-Type', 'application/json');
+                }
+                catch (Exception $e)
+                {
+                    $payload = json_encode("No se pudo tomar el pedido. {$e->getMessage()}");
+                    $response->getBody()->write($payload);
+                    return $response->withHeader('Content-Type', 'application/json');
                 }
             }
             else
@@ -58,24 +54,42 @@ class CPedido
 
     public static function ListarPedidos(Request $request, Response $response, $args)
     {
-        $payload = json_encode(Pedido::ListarPedidosObj());
-        $response->getBody()->write($payload);
-        return $response->withHeader('Content-Type', 'application/json');
+        try
+        {
+            $payload = json_encode(Pedido::ListarPedidosObj());
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+        catch (Exception $e)
+        {
+            $payload = json_encode("No se pudo listar los pedidos. {$e->getMessage()}");
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        }
     }
 
     public static function ListarPedidosPorSector(Request $request, Response $response, $args)
     {
         $parametros = $request->getQueryParams();
         $sector = $parametros['Sector'];
-        $payload = json_encode(Pedido::ListarPedidosPorSector($sector));
-        $response->getBody()->write($payload);
-        return $response->withHeader('Content-Type', 'application/json');
+        try
+        {
+            $payload = json_encode(Pedido::ListarPedidosPorSector($sector));
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+        catch (Exception $e)
+        {
+            $payload = json_encode("No se pudo listar los pedidos. {$e->getMessage()}");
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        }
     }
 
     public static function TraerPedidoPorClave(Request $request, Response $response, $args)
     {
         $parametros = $request->getQueryParams();
-        $clave = $parametros['Clave_Unica'];
+        $clave = $parametros['CodigoUnico'];
         $payload = json_encode(Pedido::TraerPedidoPorClave($clave));
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json');
@@ -127,6 +141,7 @@ class CPedido
         $idPedido = $parametros['ID_Pedido'];
         $estado = $parametros['Estado'];
         $sector = $parametros['Sector'];
+        $tiempo = $parametros['Tiempo'];
 
         if (Pedido::ExistePedido($idPedido))
         {
@@ -134,7 +149,7 @@ class CPedido
             {
                 try
                 {
-                    Pedido::CambiarEstadoPedidoPorSector($idPedido, $estado, $sector);
+                    Pedido::CambiarEstadoPedidoPorSector($idPedido, $estado, $sector, $tiempo);
                     $payload = json_encode("Estado del pedido cambiado a {$estado}");
                     $response->getBody()->write($payload);
                     return $response->withHeader('Content-Type', 'application/json');

@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
 
 include_once 'Producto.php';
 include_once '../app/Utils/Utils.php';
@@ -15,56 +14,52 @@ class Pedido
         $valorTotal = 0;
         foreach ($productos as $e)
         {
-            $idProducto = $e['Producto'];
-            $producto = Producto::BuscarProductoID($idProducto);
-            $productoNombre = $producto->Nombre;
-            $sector = $producto->Sector;
-            $estado = 'Pedido';
+            $idProducto = $e['ID_Producto'];
             $cantidad = $e['Cantidad'];
-            $tiempoEstimado = self::CalcularTiempoEstimado($tiempoEstimado, $producto->Tiempo);
+            $producto = Producto::BuscarProductoID($idProducto);
+            //$tiempoEstimado = self::CalcularTiempoEstimado($tiempoEstimado, $producto[0]->Tiempo);
             $pedido[] = [
-                'Producto' => $productoNombre,
+                'Producto' => $producto[0]->Nombre,
                 'Cantidad' => $cantidad,
-                'Sector'   => $sector,
+                'Sector'   => $producto[0]->Sector,
                 'Tiempo'   => $tiempoEstimado,
-                'Estado'   => $estado
+                'Estado'   => 'Pedido'
             ];
-            self::ActualizoStock($idProducto, $cantidad);
-
-            $valorTotal += $producto->Precio;
+            $valorTotal += $producto[0]->Precio;
         }
 
         #PREPARO LA QUERY DEL PEDIDO
         $codigo = Utils::GenerarCodigo();
-        $consultaInsert = $objAccesoDatos->prepararConsulta(
-            "INSERT INTO Pedido (Productos,ID_Mesa,CodigoUnico,TiempoEstimado,ValorTotal) 
-                        VALUES (:productos,:idMesa,:codigo,:tiempo,:valorTotal)"
+        $consulta = $objAccesoDatos->prepararConsulta(
+            "INSERT INTO Pedido 
+            (Productos,ID_Mesa,CodigoUnico,TiempoEstimado,ValorTotal) 
+            VALUES (:productos,:idMesa,:codigo,:tiempo,:valorTotal)"
         );
-        $consultaInsert->bindValue(':tiempo', $tiempoEstimado, PDO::PARAM_STR);
-        $consultaInsert->bindValue(':productos', json_encode($pedido), PDO::PARAM_STR);
-        $consultaInsert->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
-        $consultaInsert->bindValue(':codigo', $codigo, PDO::PARAM_STR);
-        $consultaInsert->bindValue(':valorTotal', $valorTotal, PDO::PARAM_INT);
-        $consultaInsert->execute();
+        $consulta->bindValue(':tiempo', $tiempoEstimado, PDO::PARAM_STR);
+        $consulta->bindValue(':productos', json_encode($pedido, true), PDO::PARAM_STR);
+        $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
+        $consulta->bindValue(':codigo', $codigo, PDO::PARAM_STR);
+        $consulta->bindValue(':valorTotal', $valorTotal, PDO::PARAM_INT);
+        $consulta->execute();
 
         return $codigo;
     }
 
     public static function BajaPedido($idPedido)
     {
+        $estado = 'Cancelado';
         //PARA REPONER LOS PRODUCTOS AL STOCK MULTIPLICAR POR -1 LOS PRODUCTOS Y ACTUALIZAR STOCK 
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $codigo = Utils::GenerarCodigo();
-        $consultaInsert = $objAccesoDatos->prepararConsulta(
+        $consulta = $objAccesoDatos->prepararConsulta(
             "UPDATE Pedido SET Estado = :estado WHERE ID = :idPedido"
         );
-        $consultaInsert->bindValue(':idPedido', $idPedido, PDO::PARAM_INT);
-        $consultaInsert->execute();
+        $consulta->bindValue(':idPedido', $idPedido, PDO::PARAM_INT);
+        $consulta->bindValue(':estado', $estado, PDO::PARAM_INT);
+        $consulta->execute();
     }
 
     public static function ModificarPedido($idPedido, $productos)
     {
-        //DEVOLVER PRODUCTOS AL STOCK Y ACTUALIZAR
         $pedido = array();
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $tiempoEstimado = '00:00';
@@ -85,44 +80,44 @@ class Pedido
                 'Tiempo'   => $tiempoEstimado,
                 'Estado'   => $estado
             ];
-            self::ActualizoStock($idProducto, $cantidad);
 
             $valorTotal += $producto->Precio;
         }
 
         #PREPARO LA QUERY DEL PEDIDO
-        $consultaInsert = $objAccesoDatos->prepararConsulta(
+        $consulta = $objAccesoDatos->prepararConsulta(
             "UPDATE Pedido SET Productos = :productos WHERE ID = :idPedido"
         );
-        $consultaInsert->bindValue(':tiempo', $tiempoEstimado, PDO::PARAM_STR);
-        $consultaInsert->bindValue(':productos', json_encode($pedido), PDO::PARAM_STR);
-        $consultaInsert->bindValue(':idPedido', $idPedido, PDO::PARAM_STR);
-        $consultaInsert->bindValue(':valorTotal', $valorTotal, PDO::PARAM_INT);
-        $consultaInsert->execute();
+        $consulta->bindValue(':tiempo', $tiempoEstimado, PDO::PARAM_STR);
+        $consulta->bindValue(':productos', json_encode($pedido), PDO::PARAM_STR);
+        $consulta->bindValue(':idPedido', $idPedido, PDO::PARAM_STR);
+        $consulta->bindValue(':valorTotal', $valorTotal, PDO::PARAM_INT);
+        $consulta->execute();
     }
 
     public static function ListarPedidosPorSector($sector)
     {
+        $pedidos = self::ListarPedidosObj();
         $psector = [];
-        $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta(
-            "SELECT Productos FROM Pedido;"
-        );
-        $consulta->execute();
-
-        $pedidos = $consulta->fetchAll(PDO::FETCH_CLASS, 'Pedido');
-
-        $productos = json_decode($pedido->Productos);
         foreach ($pedidos as $pedido)
         {
+            $productos = json_decode($pedido->Productos, true);
             foreach ($productos as $producto)
             {
-                if ($producto->Sector == $sector)
-                    $psector[] = $producto;
+                if ($producto['Sector'] === $sector)
+                {
+                    $psector[] = array(
+                        'ID_Pedido' => $pedido->ID,
+                        'Producto' => $producto['Producto'],
+                        'Cantidad' => $producto['Cantidad'],
+                        'Sector' => $producto['Sector'],
+                        'Tiempo' => $producto['Tiempo'],
+                        'Estado' => $producto['Estado'],
+                    );
+                }
             }
         }
-
-        return $psector->fetchAll(PDO::FETCH_CLASS, 'Pedido');
+        return $psector;
     }
 
     public static function ListarPedidosObj()
@@ -149,6 +144,7 @@ class Pedido
         foreach ($pedidos as $pedido)
         {
             $productos = json_decode($pedido->Productos);
+            $idPedido = $pedido->ID;
             foreach ($productos as $producto)
             {
                 $psector[] = $producto;
@@ -208,32 +204,37 @@ class Pedido
 
     public static function CambiarEstadoPedido($idPedido, $estado)
     {
+        $tiempoEstimado = self::EstimarTiempoPedido($idPedido);
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta(
-            "UPDATE Pedido SET Estado = :estado WHERE ID = :id"
+            "UPDATE Pedido SET Estado = :estado, TiempoEstimado = :tiempo WHERE ID = :id"
         );
         $consulta->bindValue(':id', $idPedido, PDO::PARAM_STR);
+        $consulta->bindValue(':tiempo', $tiempoEstimado, PDO::PARAM_STR);
         $consulta->bindValue(':estado', $estado, PDO::PARAM_STR);
         $consulta->execute();
     }
 
-    public static function CambiarEstadoPedidoPorSector($idPedido, $estado, $sector)
+    public static function CambiarEstadoPedidoPorSector($idPedido, $estado, $sector, $tiempo)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
 
         # OBTENER EL PEDIDO POR ID
         $pedido = self::TraerPedido($idPedido);
-
         if (!$pedido)
             return;
 
         # OBTENER LOS PRODUCTOS DEL PEDIDO
-        $productos = json_decode($pedido->Productos);
+        $productos = json_decode($pedido[0]->Productos);
 
-        foreach ($productos as &$producto)
+        foreach ($productos as $producto)
         {
             if ($producto->Sector == $sector)
+            {
                 $producto->Estado = $estado;
+                $producto->Tiempo = $tiempo;
+            }
+            $productosMod[] = $producto;
         }
 
         $aux = Utils::DameUnEmpleado($sector);
@@ -244,7 +245,7 @@ class Pedido
             "UPDATE Pedido SET Productos = :productos WHERE ID = :id"
         );
         $consulta->bindValue(':id', $idPedido, PDO::PARAM_INT);
-        $consulta->bindValue(':productos', json_encode($productos), PDO::PARAM_STR);
+        $consulta->bindValue(':productos', json_encode($productosMod), PDO::PARAM_STR);
         $consulta->execute();
     }
 
@@ -302,5 +303,26 @@ class Pedido
             return sprintf("%02d:%02d", floor($tprAux / 60), $tprAux % 60);
         else
             return sprintf("%02d:%02d", floor($tpdAux / 60), $tpdAux % 60);
+    }
+
+    private static function EstimarTiempoPedido($idPedido)
+    {
+        #RECORRER LOS PRODUCTOS DEL PEDIDO Y TOMAR EL MAYOR TIEMPO
+        $tiempoEstimado = '00:00';
+        $pedido = self::TraerPedido($idPedido);
+        if (!$pedido)
+            return;
+
+        # OBTENER LOS PRODUCTOS DEL PEDIDO
+        $productos = json_decode($pedido[0]->Productos);
+
+        foreach ($productos as $producto)
+        {
+            if ($producto->Tiempo > $tiempoEstimado)
+            {
+                $tiempoEstimado = $producto->Tiempo;
+            }
+        }
+        return $tiempoEstimado;
     }
 }

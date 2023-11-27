@@ -21,7 +21,19 @@ class Empleado
         return $objAccesoDatos->obtenerUltimoId();
     }
 
-    public static function CambiarEstadoEmpleado($idEmpleado,$estado)
+    public static function ModificarEmpleado($idEmpleado, $nombre, $apellido)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta(
+            "UPDATE Empleado SET Nombre = :nombre, Apellido = :apellido, WHERE ID = :idEmpleado"
+        );
+        $consulta->bindValue(':nombre', $nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':apellido', $apellido, PDO::PARAM_STR);
+        $consulta->bindValue(':idEmpleado', $idEmpleado, PDO::PARAM_INT);
+        $consulta->execute();
+    }
+
+    public static function CambiarEstadoEmpleado($idEmpleado, $estado)
     {
         $fecha = date('Y-m-d');
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
@@ -34,17 +46,6 @@ class Empleado
         $consulta->execute();
     }
 
-    public static function ModificarEmpleado($idEmpleado, $nombre, $apellido)
-    {
-        $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta(
-            "UPDATE Empleado SET Nombre = :nombre, Apellido = :apellido, WHERE ID = :idEmpleado"
-        );
-        $consulta->bindValue(':nombre', $nombre, PDO::PARAM_STR);
-        $consulta->bindValue(':apellido', $apellido, PDO::PARAM_STR);
-        $consulta->bindValue(':idEmpleado', $idEmpleado, PDO::PARAM_INT);
-        $consulta->execute();
-    }
 
     public static function ListarEmpleados()
     {
@@ -148,5 +149,14 @@ class Empleado
         $consultaUpdate->execute();
     }
 
-
+    public static function ExisteEmpleado($nombre, $apellido)
+    {
+        $empleados = self::ListarEmpleados();
+        foreach ($empleados as $e)
+        {
+            if ($e->Nombre == $nombre && $e->Apellido == $apellido)
+                return true;
+        }
+        return false;
+    }
 }

@@ -16,7 +16,7 @@ class CEmpleado
         try
         {
             Empleado::AltaEmpleado($nombre, $apellido, $clave);
-            $payload = json_encode("Empleado creado exitosamente.");
+            $payload = json_encode("El empleado $nombre $apellido fue ingresado exitosamente.");
             $response->getBody()->write($payload);
             return $response->withHeader('Content-Type', 'application/json');
         }
@@ -40,7 +40,7 @@ class CEmpleado
     {
         $parametros = $request->getQueryParams();
         $sector = $parametros['Sector'];
-        $lista = Empleado::ListarPorSector($sector);
+        $lista = Empleado::ListarActivosPorSector($sector);
         $payload = json_encode(array("listaDeEmpleados" => $lista));
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json');
@@ -85,9 +85,10 @@ class CEmpleado
     {
         $parametros = $request->getQueryParams();
         $idEmpleado = $parametros['ID'];
+        $estado = 'Inactivo';
         try
         {
-            Empleado::BajaEmpleado($idEmpleado);
+            Empleado::CambiarEstadoEmpleado($idEmpleado, $estado);
             $payload = json_encode("Empleado dado de baja.");
             $response->getBody()->write($payload);
             return $response->withHeader('Content-Type', 'application/json');

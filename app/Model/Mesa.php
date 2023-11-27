@@ -7,20 +7,41 @@ include_once '../app/Utils/Utils.php';
 
 class Mesa
 {
-    public static function AltaMesa($idPedido)
+
+    public static function CrearMesa()
+    {
+        $estado = 'Libre';
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consultaUpdate = $objAccesoDatos->prepararConsulta(
+            "INSERT INTO Mesa (Estado) 
+            VALUES (:estado)"
+        );
+        $consultaUpdate->bindValue(':estado', $estado, PDO::PARAM_STR);
+        $consultaUpdate->execute();
+        return $objAccesoDatos->obtenerUltimoId();
+    }
+
+    public static function AltaMesa($idMesa, $idPedido)
     {
         $cliente = Cliente::$clientes[rand(0, count(Cliente::$clientes) - 1)];
         $estado = 'Con cliente esperando pedido';
         $codigo = Utils::GenerarCodigo();
+        $mozo = Utils::DameUnEmpleado('Mozo');
+        Empleado::SumarOperacion($mozo->ID);
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consultaUpdate = $objAccesoDatos->prepararConsulta(
-            "INSERT INTO Mesa (Estado,CodigoUnico,ID_Pedido,Cliente,ID_Empleado) 
-            VALUES (:estado,:codigoUnico,:idPedido,:cliente,idEmpleado)",
+            "UPDATE Mesa SET 
+            Estado = :estado,
+            CodigoUnico = :codigoUnico,
+            ID_Empleado = :idEmpleado,
+            ID_Pedido = :idPedido,
+            Cliente = :cliente
+            WHERE ID = :idMesa"
         );
-        $consultaUpdate->bindValue(':id', $idMesa, PDO::PARAM_INT);
+        $consultaUpdate->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
         $consultaUpdate->bindValue(':idPedido', $idPedido, PDO::PARAM_INT);
         $consultaUpdate->bindValue(':estado', $estado, PDO::PARAM_STR);
-        $consultaUpdate->bindValue(':idEmpleado', $idEmpleado, PDO::PARAM_INT);
+        $consultaUpdate->bindValue(':idEmpleado', $mozo->ID, PDO::PARAM_INT);
         $consultaUpdate->bindValue(':cliente', $cliente, PDO::PARAM_STR);
         $consultaUpdate->bindValue(':codigoUnico', $codigo, PDO::PARAM_STR);
         $consultaUpdate->execute();

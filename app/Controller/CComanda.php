@@ -13,35 +13,14 @@ class CComanda
     {
         $parametros = $request->getParsedBody();
         $idMesa = $parametros['ID_Mesa'];
-        $idPedido = Mesa::TraerIDPedido($idMesa);
+        $mesa = Mesa::TraerMesa($idMesa);
+        $pedido = Pedido::TraerPedido($mesa[0]->ID_Pedido);
         try
         {
-            if (Pedido::ExistePedido($idPedido))
-            {
-                $pedido = Pedido::TraerPedido($idPedido);
-                $productos = $pedido->Productos;
-                $cliente = Mesa::TraerCliente($idMesa);
-                $idEmpleado = Mesa::TraerIDEmpleado($idMesa);
-                if (!Comanda::ExistePedidoEnComanda($idPedido))
-                {
-                    Comanda::AltaComanda($idMesa, $cliente[0]->Cliente, $idEmpleado, $idPedido, $productos);
-                    $payload = json_encode("Comanda creada correctamente");
-                    $response->getBody()->write($payload);
-                    return $response->withHeader('Content-Type', 'application/json');
-                }
-                else
-                {
-                    $payload = json_encode("El pedido ya fue pasado a la comanda");
-                    $response->getBody()->write($payload);
-                    return $response->withHeader('Content-Type', 'application/json');
-                }
-            }
-            else
-            {
-                $payload = json_encode("El numero de pedido no existe");
-                $response->getBody()->write($payload);
-                return $response->withHeader('Content-Type', 'application/json');
-            }
+            Comanda::AltaComanda($idMesa, $mesa[0]->Cliente, $mesa[0]->ID_Empleado, $mesa[0]->ID_Pedido, $pedido[0]->Productos);
+            $payload = json_encode("Comanda creada correctamente");
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
         }
         catch (Exception $e)
         {

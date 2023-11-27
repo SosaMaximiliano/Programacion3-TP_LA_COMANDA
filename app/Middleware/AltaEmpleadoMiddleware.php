@@ -15,10 +15,10 @@ class ValidadorMiddleware
         if (Empleado::ValidarDatos($parametros))
         {
             #VALIDAR QUE NO EXISTA
-            if (Empleado::BuscarEmpleadoPorNombre($nombre, $apellido) == NULL)
+            if (!Empleado::ExisteEmpleado($nombre, $apellido))
                 $response = $handler->handle($request);
             else
-                throw new Exception("El empleado ya se encuentra dado de alta", 300);
+                throw new Exception("El empleado $nombre $apellido ya se encuentra dado de alta", 300);
         }
         else
         {

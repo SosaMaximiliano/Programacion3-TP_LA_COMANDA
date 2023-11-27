@@ -32,14 +32,15 @@ class Comanda
         $estado = "Cancelada";
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta(
-            "UPDATE Comanda SET Estado = :estado WHERE ID = :idComanda");
+            "UPDATE Comanda SET Estado = :estado WHERE ID = :idComanda"
+        );
         $consulta->bindValue(':estado', $estado, PDO::PARAM_STR);
         $consulta->execute();
 
         return $objAccesoDatos->obtenerUltimoId();
     }
 
-    public static function ModificarComanda($idComanda,$idMesa, $cliente, $idPedido, $pedidos)
+    public static function ModificarComanda($idComanda, $idMesa, $cliente, $idPedido, $pedidos)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta(

@@ -31,12 +31,11 @@ class Producto
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta(
-            "SELECT * FROM Producto WHERE ID = idProducto"
+            "SELECT * FROM Producto WHERE ID = :idProducto"
         );
         $consulta->bindValue(':idProducto', $idProducto, PDO::PARAM_STR);
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'Producto');
-
     }
 
     public static function BuscarProductoNombre($nombre)
@@ -57,7 +56,7 @@ class Producto
 
         foreach ($productos as $e)
         {
-            $idProducto = $e['Producto'];
+            $idProducto = $e['ID_Producto'];
             $cantidad = $e['Cantidad'];
             $hayStock = false;
 

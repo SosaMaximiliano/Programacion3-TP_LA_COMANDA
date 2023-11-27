@@ -14,11 +14,11 @@ class CMesa
         "Cerrada"
     );
 
-    public static function AltaMesa(Request $request, Response $response, $args)
+    public static function CrearMesa(Request $request, Response $response, $args)
     {
         try
         {
-            $idMesa = Mesa::AltaMesa();
+            $idMesa = Mesa::CrearMesa();
             $payload = json_encode("La mesa {$idMesa} fue dada de alta");
             $response->getBody()->write($payload);
             return $response->withHeader('Content-Type', 'application/json');
@@ -31,7 +31,7 @@ class CMesa
         }
     }
 
-    public static function AbrirMesa(Request $request, Response $response, $args)
+    public static function AltaMesa(Request $request, Response $response, $args)
     {
         $parametros = $request->getParsedBody();
         $idMesa = $parametros['ID_Mesa'];
@@ -51,13 +51,10 @@ class CMesa
                         return $response->withHeader('Content-Type', 'application/json');
                     }
                 }
-                $mozo = Utils::DameUnMozo();
-                $idEmpleado = $mozo->ID;
                 try
                 {
-                    Mesa::AbrirMesa($idMesa, $idEmpleado, $idPedido);
-                    Empleado::SumarOperacion($idEmpleado);
-                    $payload = json_encode("La mesa {$idMesa} esta siendo atendida por {$mozo->Nombre} {$mozo->Apellido}");
+                    Mesa::AltaMesa($idMesa, $idPedido);
+                    $payload = json_encode("La mesa {$idMesa} esta siendo atendida");
                     $response->getBody()->write($payload);
                     return $response->withHeader('Content-Type', 'application/json');
                 }
@@ -77,7 +74,7 @@ class CMesa
         }
         else
         {
-            $payload = json_encode("La mesa no esta disponible.");
+            $payload = json_encode("La mesa {$idMesa} no esta disponible.");
             $response->getBody()->write($payload);
             return $response->withHeader('Content-Type', 'application/json');
         }

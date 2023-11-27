@@ -13,26 +13,9 @@ class Utils
         return $codigo;
     }
 
-    public static function DameUnMozo()
-    {
-        $empleados = Empleado::ListarPorSector("Mozo");
-        $disponibles = array_filter($empleados, function ($mozo)
-        {
-            return $mozo->Estado != 'Baja';
-        });
-
-        if (count($disponibles) > 0)
-        {
-            $random = rand(0, (count($empleados) - 1));
-            $mozo = $empleados[$random];
-            return $mozo;
-        }
-        return NULL;
-    }
-
     public static function DameUnEmpleado($sector)
     {
-        $empleados = Empleado::ListarPorSector($sector);
+        $empleados = Empleado::ListarActivosPorSector($sector);
         $disponibles = array_filter($empleados, function ($empleado)
         {
             return $empleado;
