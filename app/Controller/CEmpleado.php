@@ -105,9 +105,52 @@ class CEmpleado
     {
         $parametros = $request->getParsedBody();
         $idPedido = $parametros['ID'];
-        var_dump($request);
         $extension = explode(".", $_FILES["imagen"]["full_path"]);
         $destino = "ImagenesDePedidos/" . $idPedido . "." . $extension[1];
         move_uploaded_file($_FILES['imagen']['tmp_name'], $destino);
+    }
+
+    public static function EmpleadosA(Request $request, Response $response, $args)
+    {
+        $parametros = $request->getQueryParams();
+        $desde = $parametros['Desde'];
+        $hasta = $parametros['Hasta'];
+        $lista = Empleado::EmpleadosA($desde, $hasta);
+        $payload = json_encode(array("listaDeEmpleados" => $lista));
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public static function EmpleadosB(Request $request, Response $response, $args)
+    {
+        $parametros = $request->getQueryParams();
+        $desde = $parametros['Desde'];
+        $hasta = $parametros['Hasta'];
+        $lista = Empleado::EmpleadosB($desde, $hasta);
+        $payload = json_encode(array("listaDeEmpleados" => $lista));
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public static function EmpleadosC(Request $request, Response $response, $args)
+    {
+        $parametros = $request->getQueryParams();
+        $desde = $parametros['Desde'];
+        $hasta = $parametros['Hasta'];
+        $lista = Empleado::EmpleadosC($desde, $hasta);
+        $payload = json_encode(array("listaDeEmpleados" => $lista));
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public static function EmpleadosD(Request $request, Response $response, $args)
+    {
+        $parametros = $request->getQueryParams();
+        $desde = $parametros['Desde'];
+        $hasta = $parametros['Hasta'];
+        $lista = Empleado::EmpleadosD($desde, $hasta);
+        $payload = json_encode(array("listaDeEmpleados" => $lista));
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
     }
 }

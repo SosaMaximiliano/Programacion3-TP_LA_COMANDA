@@ -103,6 +103,20 @@ $app->group('/cliente', function (RouteCollectorProxy $group)
     $group->post('/encuesta', \CEncuesta::class . ':RealizarEncuesta');
 });
 
+$app->group('/admin', function (RouteCollectorProxy $group)
+{
+    $group->get('/7a', \CEmpleado::class . ':EmpleadosA');
+    $group->get('/7b', \CEmpleado::class . ':EmpleadosB');
+    $group->get('/7c', \CEmpleado::class . ':EmpleadosC');
+    $group->get('/7d', \CEmpleado::class . ':EmpleadosD');
+
+    $group->get('/8a', \CPedido::class . ':PedidosA');
+    $group->get('/8b', \CPedido::class . ':PedidosB');
+
+    $group->get('/9c', \CMesa::class . ':MesasC');
+    $group->get('/9d', \CMesa::class . ':MesasD');
+});
+
 $app->get('[/]', function (Request $request, Response $response)
 {
     $response->getBody()->write("La Comanda - TP Programacion III ");

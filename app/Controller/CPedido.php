@@ -176,4 +176,26 @@ class CPedido
         }
         return $response;
     }
+
+    public static function PedidosA(Request $request, Response $response, $args)
+    {
+        $parametros = $request->getQueryParams();
+        $desde = $parametros['Desde'];
+        $hasta = $parametros['Hasta'];
+        $lista = Pedido::PedidosA($desde, $hasta);
+        $payload = json_encode(array("El mas vendido" => $lista));
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public static function PedidosB(Request $request, Response $response, $args)
+    {
+        $parametros = $request->getQueryParams();
+        $desde = $parametros['Desde'];
+        $hasta = $parametros['Hasta'];
+        $lista = Pedido::PedidosB($desde, $hasta);
+        $payload = json_encode(array("El menos vendido" => $lista));
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
 }

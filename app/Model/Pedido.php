@@ -309,4 +309,48 @@ class Pedido
         }
         return $tiempoEstimado;
     }
+
+    public static function PedidosA($desde, $hasta)
+    {
+        $pedidos = self::ListarPedidosObj();
+        $productos = [];
+
+        foreach ($pedidos as $pedido)
+        {
+            $pedidosAux = json_decode($pedido->Productos, true);
+
+            foreach ($pedidosAux as $e)
+            {
+                if (!isset($productos[$e['Producto']]))
+                    $productos[$e['Producto']] = 0;
+                $productos[$e['Producto']] += $e['Cantidad'];
+            }
+        }
+        $masVendido = max($productos);
+        return $masVendido;
+    }
+
+
+    public static function PedidosB($desde, $hasta)
+    {
+        $d = new DateTime($desde);
+        $h = new DateTime($hasta);
+        $pedidos = self::ListarPedidosObj();
+        $productos = [];
+
+        foreach ($pedidos as $pedido)
+        {
+            var_dump($pedido);
+            $pedidosAux = json_decode($pedido->Productos, true);
+
+            foreach ($pedidosAux as $e)
+            {
+                if (!isset($productos[$e['Producto']]))
+                    $productos[$e['Producto']] = 0;
+                $productos[$e['Producto']] += $e['Cantidad'];
+            }
+        }
+        $menosVendido = min($productos);
+        return $menosVendido;
+    }
 }
