@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-11-2023 a las 22:38:40
+-- Tiempo de generación: 28-11-2023 a las 22:28:13
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -37,8 +37,18 @@ CREATE TABLE `Comanda` (
   `Pedidos` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Pedidos`)),
   `NombreCliente` varchar(255) DEFAULT NULL,
   `FotoMesa` varchar(255) DEFAULT NULL,
-  `Estado` varchar(50) DEFAULT NULL
+  `Estado` varchar(50) DEFAULT NULL,
+  `ClaveMesa` varchar(10) NOT NULL,
+  `ClavePedido` varchar(10) NOT NULL,
+  `TiempoEstimado` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `Comanda`
+--
+
+INSERT INTO `Comanda` (`ID`, `Fecha`, `Hora`, `ID_Mesa`, `ID_Empleado`, `ID_Pedido`, `Pedidos`, `NombreCliente`, `FotoMesa`, `Estado`, `ClaveMesa`, `ClavePedido`, `TiempoEstimado`) VALUES
+(13, '2023-11-28', '13:24:30pm', 20, 18, 54, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:12\",\"Estado\":\"Listo para servir\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:08\",\"Estado\":\"Listo para servir\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:08\",\"Estado\":\"Listo para servir\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:58\",\"Estado\":\"Listo para servir\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:58\",\"Estado\":\"Listo para servir\"}]', 'Rocío', NULL, 'Listo para servir', 'FS1U7', '1EDGQ', '00:58');
 
 -- --------------------------------------------------------
 
@@ -66,11 +76,11 @@ INSERT INTO `Empleado` (`ID`, `Nombre`, `Apellido`, `Sector`, `Clave`, `Estado`,
 (1, 'Moe', 'Howard', 'Socio', '$2y$10$ujzmwmXf2l4H2gKuZeU7SOK.6W8gmaffPjFthCH2u2cNsG1qzVlm2', 'Activo', 0, '2023-11-27', NULL),
 (2, 'Curly', 'Howard', 'Socio', '$2y$10$VbHCIZWZpGUN9klBz5Dd6Oh/9FPAAhoLBtS7HDe94EBCfChnuB6EO', 'Activo', 0, '2023-11-27', NULL),
 (3, 'Larry', 'Fine', 'Socio', '$2y$10$2fUmNkZ/06tYR9YRKDeizu/wKgSBfnKAcrurSf.zGhIi2KVelW6Wq', 'Activo', 0, '2023-11-27', NULL),
-(17, 'Chuck', 'Norris', 'Bartender', '$2y$10$irQW/VXdN6cWWjjse.c8iuHse2j4HM8DBHYGNw.6nNRl0/.YV4tQK', 'Activo', 1, '2023-11-27', NULL),
-(18, 'Max', 'Payne', 'Mozo', '$2y$10$vGjSvKtUHualZWSX6Fu33OCUHY64scvkQbPHoO0lFjnsy1XHZzlVi', 'Activo', 3, '2023-11-27', NULL),
-(19, 'Clint', 'Eastwood', 'Cocinero', '$2y$10$PoIT/.quGcP0//EqaOa/PedLpz4uOAgIJojjYsQKsrdtVGDDdzs8i', 'Activo', 11, '2023-11-27', NULL),
-(24, 'Nikola', 'Tesla', 'Mozo', '$2y$10$XqHJbcSWcmQB5pBKGnMjle85YoosrxDipLky.Ay/W1upY8maINygG', 'Activo', 0, '2023-11-27', NULL),
-(30, 'Tom', 'York', 'Cervecero', '$2y$10$T/Y3gGFhPBS0tpy.MNtNP.SHPAiS2M6212.4tAJ50zeH1qW.7YIi6', 'Activo', 1, '2023-11-27', NULL);
+(17, 'Chuck', 'Norris', 'Bartender', '$2y$10$irQW/VXdN6cWWjjse.c8iuHse2j4HM8DBHYGNw.6nNRl0/.YV4tQK', 'Activo', 7, '2023-11-27', NULL),
+(18, 'Max', 'Payne', 'Mozo', '$2y$10$vGjSvKtUHualZWSX6Fu33OCUHY64scvkQbPHoO0lFjnsy1XHZzlVi', 'Activo', 7, '2023-11-27', NULL),
+(19, 'Clint', 'Eastwood', 'Cocinero', '$2y$10$PoIT/.quGcP0//EqaOa/PedLpz4uOAgIJojjYsQKsrdtVGDDdzs8i', 'Activo', 45, '2023-11-27', NULL),
+(24, 'Nikola', 'Tesla', 'Mozo', '$2y$10$XqHJbcSWcmQB5pBKGnMjle85YoosrxDipLky.Ay/W1upY8maINygG', 'Activo', 2, '2023-11-27', NULL),
+(30, 'Tom', 'York', 'Cervecero', '$2y$10$T/Y3gGFhPBS0tpy.MNtNP.SHPAiS2M6212.4tAJ50zeH1qW.7YIi6', 'Activo', 7, '2023-11-27', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,12 +119,18 @@ CREATE TABLE `Mesa` (
 --
 
 INSERT INTO `Mesa` (`ID`, `ID_Pedido`, `Estado`, `ID_Empleado`, `Cliente`, `CodigoUnico`) VALUES
-(20, NULL, 'Libre', NULL, NULL, NULL),
+(20, 54, 'Con cliente esperando pedido', 18, 'Rocío', 'FS1U7'),
 (21, NULL, 'Libre', NULL, NULL, NULL),
 (22, NULL, 'Libre', NULL, NULL, NULL),
-(23, NULL, 'Libre', NULL, NULL, NULL),
+(23, 56, 'Con cliente esperando pedido', 24, 'Santiago', '7PUQA'),
 (24, NULL, 'Libre', NULL, NULL, NULL),
-(25, NULL, 'Libre', NULL, NULL, NULL);
+(25, 55, 'Con cliente esperando pedido', 18, 'Gabriela', 'I7VSF'),
+(26, 65, 'Con cliente esperando pedido', 18, 'Marcela', '78C0G'),
+(27, 66, 'Con cliente esperando pedido', 18, 'Adriana', 'ZRPGL'),
+(28, 67, 'Con cliente esperando pedido', 24, 'Rocío', 'WECJV'),
+(29, NULL, 'Libre', NULL, NULL, NULL),
+(30, NULL, 'Libre', NULL, NULL, NULL),
+(31, NULL, 'Libre', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -137,10 +153,24 @@ CREATE TABLE `Pedido` (
 --
 
 INSERT INTO `Pedido` (`ID`, `Productos`, `ID_Mesa`, `CodigoUnico`, `Estado`, `TiempoEstimado`, `ValorTotal`) VALUES
-(53, 'null', 20, 'V89Z0', 'Pedido', '00:40', 3250.00),
-(54, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:15\",\"Estado\":\"En preparacion\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:08\",\"Estado\":\"En preparacion\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:08\",\"Estado\":\"En preparacion\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:54\",\"Estado\":\"En preparacion\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:54\",\"Estado\":\"En preparacion\"}]', 20, '1EDGQ', 'En preparacion', '00:54', 3250.00),
+(54, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:15\",\"Estado\":\"En preparacion\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:08\",\"Estado\":\"Entregado\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:08\",\"Estado\":\"Entregado\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:54\",\"Estado\":\"En preparacion\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:54\",\"Estado\":\"En preparacion\"}]', 20, '1EDGQ', 'En preparacion', '00:54', 3250.00),
 (55, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:40\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:40\",\"Estado\":\"Pedido\"}]', 23, '8UNPZ', 'Pedido', '00:40', 3250.00),
-(56, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:40\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:40\",\"Estado\":\"Pedido\"}]', 25, 'PZPD7', 'Pedido', '00:40', 3250.00);
+(56, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:40\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:40\",\"Estado\":\"Pedido\"}]', 25, 'PZPD7', 'Pedido', '00:40', 3250.00),
+(57, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, 'P42P2', 'Pedido', '00:00', 3250.00),
+(58, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, 'SJJR7', 'Pedido', '00:00', 3250.00),
+(59, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, 'VMLF7', 'Pedido', '00:00', 3250.00),
+(60, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, '87CMJ', 'Pedido', '00:00', 3250.00),
+(61, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, 'SC86A', 'Pedido', '00:00', 3250.00),
+(62, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, 'LLA05', 'Pedido', '00:00', 3250.00),
+(63, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, '4IU2A', 'Pedido', '00:00', 3250.00),
+(64, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 25, 'N2EVR', 'Pedido', '00:00', 3250.00),
+(65, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 26, 'NGOZZ', 'Pedido', '00:00', 3250.00),
+(66, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 26, '1HJ60', 'Pedido', '00:00', 3250.00),
+(67, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 27, 'OEV23', 'Pedido', '00:00', 3250.00),
+(68, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 28, 'F2IBJ', 'Pedido', '00:00', 3250.00),
+(69, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 29, 'T3AQM', 'Pedido', '00:00', 3250.00),
+(70, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 30, '9TA1M', 'Pedido', '00:00', 3250.00),
+(71, '[{\"Producto\":\"Refresco de Cola\",\"Cantidad\":\"3\",\"Sector\":\"Bartender\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Corona\",\"Cantidad\":\"5\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Cerveza Artesanal\",\"Cantidad\":\"3\",\"Sector\":\"Cervecero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Milanesa a caballo\",\"Cantidad\":\"2\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"},{\"Producto\":\"Hamburguesa de garbanzo\",\"Cantidad\":\"3\",\"Sector\":\"Cocinero\",\"Tiempo\":\"00:00\",\"Estado\":\"Pedido\"}]', 31, 'P7DJ8', 'Pedido', '00:00', 3250.00);
 
 -- --------------------------------------------------------
 
@@ -258,7 +288,7 @@ ALTER TABLE `Producto`
 -- AUTO_INCREMENT de la tabla `Comanda`
 --
 ALTER TABLE `Comanda`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `Empleado`
@@ -276,13 +306,13 @@ ALTER TABLE `Encuesta`
 -- AUTO_INCREMENT de la tabla `Mesa`
 --
 ALTER TABLE `Mesa`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `Pedido`
 --
 ALTER TABLE `Pedido`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT de la tabla `Producto`

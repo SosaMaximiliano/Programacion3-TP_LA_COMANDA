@@ -319,7 +319,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
 											"type": "string"
 										}
 									]
@@ -328,7 +328,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"Productos\": \n[\n    {\"ID_Producto\" : \"15\",\"Cantidad\" : \"3\"},\n    {\"ID_Producto\" : \"22\",\"Cantidad\" : \"5\"},\n    {\"ID_Producto\" : \"16\",\"Cantidad\" : \"3\"},\n    {\"ID_Producto\" : \"19\",\"Cantidad\" : \"2\"},\n    {\"ID_Producto\" : \"20\",\"Cantidad\" : \"3\"}\n],\n  \"ID_Mesa\": 20\n}\n",
+									"raw": "{\n  \"Productos\": \n[\n    {\"ID_Producto\" : \"15\",\"Cantidad\" : \"3\"},\n    {\"ID_Producto\" : \"22\",\"Cantidad\" : \"5\"},\n    {\"ID_Producto\" : \"16\",\"Cantidad\" : \"3\"},\n    {\"ID_Producto\" : \"19\",\"Cantidad\" : \"2\"},\n    {\"ID_Producto\" : \"20\",\"Cantidad\" : \"3\"}\n],\n  \"ID_Mesa\": 25\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -356,7 +356,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
 											"type": "string"
 										}
 									]
@@ -368,12 +368,12 @@
 									"formdata": [
 										{
 											"key": "ID_Mesa",
-											"value": "19",
+											"value": "20",
 											"type": "text"
 										},
 										{
 											"key": "ID_Pedido",
-											"value": "50",
+											"value": "54",
 											"type": "text"
 										}
 									]
@@ -398,7 +398,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDEwOTA5NDAsImV4cCI6MTcwMTE1MDk0MCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE4LCJOb21icmUiOiJNYXgiLCJBcGVsbGlkbyI6IlBheW5lIiwiQ2xhdmUiOiIkMnkkMTAkdkdqU3ZLdFVIdWFsWldTWDZGdTMzT0NVSFk2NHNjdmtRYlBIb08wbEZqbnN5MVhIWnpsVmkiLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.L1ZmnwYTiaLYsI9okzmsk4QM_OSrS8LTAquCriKpsHM",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
 											"type": "string"
 										}
 									]
@@ -410,7 +410,7 @@
 									"formdata": [
 										{
 											"key": "ID_Mesa",
-											"value": "19",
+											"value": "20",
 											"type": "text"
 										}
 									]
@@ -872,7 +872,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc2ODMsImV4cCI6MTcwMTE3NzY4MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6VmXhdotdjs9TwFZ3myHOZCq7Vfp8CCDnmggBKvAV5Y",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExODQwMjQsImV4cCI6MTcwMTI0NDAyNCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.kms8sfJxZHPw8Bllycgriu9IqiBR0PDgRZSJyTH5wfQ",
 											"type": "string"
 										}
 									]
@@ -902,14 +902,14 @@
 							"response": []
 						},
 						{
-							"name": "CambiarEstadoPorSector",
+							"name": "CambiarEstadoPedidoPorSector",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc2ODMsImV4cCI6MTcwMTE3NzY4MywiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.6VmXhdotdjs9TwFZ3myHOZCq7Vfp8CCDnmggBKvAV5Y",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExODQwMjQsImV4cCI6MTcwMTI0NDAyNCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.kms8sfJxZHPw8Bllycgriu9IqiBR0PDgRZSJyTH5wfQ",
 											"type": "string"
 										}
 									]
@@ -936,6 +936,42 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "CambiarEstadoComandaPorSector Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExODQwMjQsImV4cCI6MTcwMTI0NDAyNCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE5LCJOb21icmUiOiJDbGludCIsIkFwZWxsaWRvIjoiRWFzdHdvb2QiLCJDbGF2ZSI6IiQyeSQxMCRQb0lULy5xdUdjUDAvL0VxYU9hL1BlZExwejR1T0FnSUpvampZc1FLc3JkdFZHRERkenM4aSIsIlNlY3RvciI6IkNvY2luZXJvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.kms8sfJxZHPw8Bllycgriu9IqiBR0PDgRZSJyTH5wfQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ID_Comanda\":\"13\",\n    \"ID_Pedido\":\"54\",\n    \"Sector\":\"Cocinero\",\n    \"Estado\":\"Listo para servir\",\n    \"Tiempo\":\"00:58\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado}}comanda/cambiarestadoporsector",
+									"host": [
+										"{{empleado}}comanda"
+									],
+									"path": [
+										"cambiarestadoporsector"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -950,7 +986,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc1NjgsImV4cCI6MTcwMTE3NzU2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.9wxlBVaiOR6HAm9UVJK80zr6Eh2YJzuHuaEsue6v7H8",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExODQxNDgsImV4cCI6MTcwMTI0NDE0OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.-X9PcVIMDhcEsGPdV_AnPWV8C1-D3xGVJSpaCms0QMo",
 											"type": "string"
 										}
 									]
@@ -976,14 +1012,14 @@
 							"response": []
 						},
 						{
-							"name": "CambiarEstadoPorSector",
+							"name": "CambiarEstadoPedidoPorSector",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc1NjgsImV4cCI6MTcwMTE3NzU2OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.9wxlBVaiOR6HAm9UVJK80zr6Eh2YJzuHuaEsue6v7H8",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExODQxNDgsImV4cCI6MTcwMTI0NDE0OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.-X9PcVIMDhcEsGPdV_AnPWV8C1-D3xGVJSpaCms0QMo",
 											"type": "string"
 										}
 									]
@@ -1003,6 +1039,42 @@
 									"raw": "{{empleado}}pedido/cambiarestadoporsector",
 									"host": [
 										"{{empleado}}pedido"
+									],
+									"path": [
+										"cambiarestadoporsector"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CambiarEstadoComandaPorSector Copy 2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExODQxNDgsImV4cCI6MTcwMTI0NDE0OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjE3LCJOb21icmUiOiJDaHVjayIsIkFwZWxsaWRvIjoiTm9ycmlzIiwiQ2xhdmUiOiIkMnkkMTAkaXJRVy9WWGRONmNXV2pqc2UuYzhpdUhzZTJqNEhNOERCSFlHTncuNm5OUmwwLy5ZVjR0UUsiLCJTZWN0b3IiOiJCYXJ0ZW5kZXIifSwiYXBwIjoiTGEgQ29tYW5kYSJ9.-X9PcVIMDhcEsGPdV_AnPWV8C1-D3xGVJSpaCms0QMo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ID_Comanda\":\"13\",\n    \"ID_Pedido\":\"54\",\n    \"Sector\":\"Bartender\",\n    \"Estado\":\"Listo para servir\",\n    \"Tiempo\":\"00:12\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado}}comanda/cambiarestadoporsector",
+									"host": [
+										"{{empleado}}comanda"
 									],
 									"path": [
 										"cambiarestadoporsector"
@@ -1050,7 +1122,43 @@
 							"response": []
 						},
 						{
-							"name": "CambiarEstadoPorSector",
+							"name": "CambiarEstadoPedidoPorSector",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExMTc3ODgsImV4cCI6MTcwMTE3Nzc4OCwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjMwLCJOb21icmUiOiJUb20iLCJBcGVsbGlkbyI6IllvcmsiLCJDbGF2ZSI6IiQyeSQxMCRUL1kzZ0dGaFBCUzB0cHkuTU50TlAuU0hQQWlTMk02MjEyLjR0QUo1MHplSDFxVy43WUlpNiIsIlNlY3RvciI6IkNlcnZlY2VybyJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.-eU8TQ2KHobHlkJ-Pm4go2rcBo1vHXcqqGAixAdrpc0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ID_Pedido\":\"54\",\n    \"Sector\":\"Cervecero\",\n    \"Estado\":\"En preparacion\",\n    \"Tiempo\":\"00:08\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado}}pedido/cambiarestadoporsector",
+									"host": [
+										"{{empleado}}pedido"
+									],
+									"path": [
+										"cambiarestadoporsector"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CambiarEstadoComandaPorSector",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1147,14 +1255,259 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{cliente}}pedido?CodigoUnico=N1N2C",
+							"raw": "{{cliente}}pedido?ClavePedido=1EDGQ&ClaveMesa=FS1U7",
 							"host": [
 								"{{cliente}}pedido"
 							],
 							"query": [
 								{
-									"key": "CodigoUnico",
-									"value": "N1N2C"
+									"key": "ClavePedido",
+									"value": "1EDGQ"
+								},
+								{
+									"key": "ClaveMesa",
+									"value": "FS1U7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "7a",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/Programacion3-TP_LA_COMANDA/app/admin/7a?Desde=2023-11-01&Hasta=2023-11-27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Programacion3-TP_LA_COMANDA",
+								"app",
+								"admin",
+								"7a"
+							],
+							"query": [
+								{
+									"key": "Desde",
+									"value": "2023-11-01"
+								},
+								{
+									"key": "Hasta",
+									"value": "2023-11-27"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7b",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/Programacion3-TP_LA_COMANDA/app/admin/7b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Programacion3-TP_LA_COMANDA",
+								"app",
+								"admin",
+								"7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7c",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/Programacion3-TP_LA_COMANDA/app/admin/7c?Desde&Hasta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Programacion3-TP_LA_COMANDA",
+								"app",
+								"admin",
+								"7c"
+							],
+							"query": [
+								{
+									"key": "Desde",
+									"value": null
+								},
+								{
+									"key": "Hasta",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7d",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/Programacion3-TP_LA_COMANDA/app/admin/7d?Desde=2023-11-01&Hasta=2023-11-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Programacion3-TP_LA_COMANDA",
+								"app",
+								"admin",
+								"7d"
+							],
+							"query": [
+								{
+									"key": "Desde",
+									"value": "2023-11-01"
+								},
+								{
+									"key": "Hasta",
+									"value": "2023-11-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8a",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/Programacion3-TP_LA_COMANDA/app/admin/8a?Desde=2023-11-01&Hasta=2023-11-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Programacion3-TP_LA_COMANDA",
+								"app",
+								"admin",
+								"8a"
+							],
+							"query": [
+								{
+									"key": "Desde",
+									"value": "2023-11-01"
+								},
+								{
+									"key": "Hasta",
+									"value": "2023-11-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8b",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDExNzQxOTksImV4cCI6MTcwMTIzNDE5OSwiYXVkIjoiZjg3MjI2NmJhOTRjYmY0MTI4MmQxYTMzNjA2Nzg3YWUzZjNkNzFhMyIsImRhdGEiOnsiSUQiOjI0LCJOb21icmUiOiJOaWtvbGEiLCJBcGVsbGlkbyI6IlRlc2xhIiwiQ2xhdmUiOiIkMnkkMTAkWHFISmJjU1djbVFCNXBCS0duTWpsZTg1WW9vc3J4RGlwTGt5LkF5L1cxdXBZOG1hSU55Z0ciLCJTZWN0b3IiOiJNb3pvIn0sImFwcCI6IkxhIENvbWFuZGEifQ.KT7BrdcrEpaox6_lAo7BnqogOBpjmsaL16B0KBpsvgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/Programacion3-TP_LA_COMANDA/app/admin/8b?Desde=2023-11-01&Hasta=2023-11-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Programacion3-TP_LA_COMANDA",
+								"app",
+								"admin",
+								"8b"
+							],
+							"query": [
+								{
+									"key": "Desde",
+									"value": "2023-11-01"
+								},
+								{
+									"key": "Hasta",
+									"value": "2023-11-30"
 								}
 							]
 						}
