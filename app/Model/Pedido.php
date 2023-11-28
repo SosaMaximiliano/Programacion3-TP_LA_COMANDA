@@ -327,7 +327,7 @@ class Pedido
             }
         }
         $masVendido = max($productos);
-        return $masVendido;
+        return $productos;
     }
 
 
@@ -340,7 +340,6 @@ class Pedido
 
         foreach ($pedidos as $pedido)
         {
-            var_dump($pedido);
             $pedidosAux = json_decode($pedido->Productos, true);
 
             foreach ($pedidosAux as $e)
