@@ -75,6 +75,8 @@ $app->group('/empleado', function (RouteCollectorProxy $group)
     #COMANDA
     $group->post('/comanda/alta', \CComanda::class . ':AltaComanda')->add(new CheckMozoMiddleware());
     $group->post('/comanda/cambiarestado', \CComanda::class . ':CambiarEstado')->add(new CheckCocineroMiddleware());
+    $group->put('/comanda/cambiarestadoporsector', \CComanda::class . ':CambiarEstadoComandaPorSector');
+    $group->get('/comanda/comandalista', \CComanda::class . ':ComandaLista');
 
     $group->post('/subirfotos', \CPedido::class . ':SubirFoto')->add(new CheckCocineroMiddleware());
 })->add(new CheckTokenMiddleware());
@@ -97,7 +99,7 @@ $app->group('/socio', function (RouteCollectorProxy $group)
 
 $app->group('/cliente', function (RouteCollectorProxy $group)
 {
-    $group->get('/pedido', \CPedido::class . ':TraerPedidoPorClave');
+    $group->get('/comanda', \CComanda::class . ':MostrarEstado');
     $group->post('/encuesta', \CEncuesta::class . ':RealizarEncuesta');
 });
 

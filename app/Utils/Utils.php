@@ -23,8 +23,7 @@ class Utils
 
         if (count($disponibles) > 0)
         {
-            $random = rand(0, (count($empleados) - 1));
-            $empleado = $empleados[$random];
+            $empleado = $disponibles[array_rand($disponibles)];
             return $empleado;
         }
         return NULL;

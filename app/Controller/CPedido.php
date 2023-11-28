@@ -86,14 +86,6 @@ class CPedido
         }
     }
 
-    public static function TraerPedidoPorClave(Request $request, Response $response, $args)
-    {
-        $parametros = $request->getQueryParams();
-        $clave = $parametros['CodigoUnico'];
-        $payload = json_encode(Pedido::TraerPedidoPorClave($clave));
-        $response->getBody()->write($payload);
-        return $response->withHeader('Content-Type', 'application/json');
-    }
 
     public static function TraerPedidoPorID(Request $request, Response $response, $args)
     {

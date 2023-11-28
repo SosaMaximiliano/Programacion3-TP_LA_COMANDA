@@ -142,11 +142,11 @@ class Empleado
     public static function SumarOperacion($idEmpleado)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consultaUpdate = $objAccesoDatos->prepararConsulta(
+        $consulta = $objAccesoDatos->prepararConsulta(
             "UPDATE Empleado SET Operaciones = Operaciones + 1 WHERE ID = :idEmpleado"
         );
-        $consultaUpdate->bindValue(':idEmpleado', $idEmpleado, PDO::PARAM_INT);
-        $consultaUpdate->execute();
+        $consulta->bindValue(':idEmpleado', $idEmpleado, PDO::PARAM_INT);
+        $consulta->execute();
     }
 
     public static function ExisteEmpleado($nombre, $apellido)
@@ -158,5 +158,57 @@ class Empleado
                 return true;
         }
         return false;
+    }
+
+    public static function EmpleadosA($desde, $hasta)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta(
+            "SELECT Nombre, Apellido, FechaAlta FROM Empleado
+            WHERE FechaAlta BETWEEN :desde AND :hasta"
+        );
+        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
+        $consulta->bindValue(':hasta', $hasta, PDO::PARAM_INT);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Empleado');
+    }
+
+    public static function EmpleadosB($desde, $hasta)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta(
+            "SELECT SUM(Operaciones) AS TotalOperaciones, Sector FROM Empleado
+            WHERE FechaAlta BETWEEN :desde AND :hasta GROUP BY Sector"
+        );
+        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
+        $consulta->bindValue(':hasta', $hasta, PDO::PARAM_INT);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Empleado');
+    }
+
+    public static function EmpleadosC($desde, $hasta)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta(
+            "SELECT Nombre, Apellido, Operaciones, Sector FROM Empleado
+            WHERE FechaAlta BETWEEN :desde AND :hasta ORDER BY Sector"
+        );
+        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
+        $consulta->bindValue(':hasta', $hasta, PDO::PARAM_INT);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Empleado');
+    }
+
+    public static function EmpleadosD($desde, $hasta)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta(
+            "SELECT Nombre, Apellido, Operaciones FROM Empleado
+            WHERE FechaAlta BETWEEN :desde AND :hasta ORDER BY Nombre"
+        );
+        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
+        $consulta->bindValue(':hasta', $hasta, PDO::PARAM_INT);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Empleado');
     }
 }

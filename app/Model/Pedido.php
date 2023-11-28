@@ -10,14 +10,13 @@ class Pedido
     {
         $pedido = array();
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $tiempoEstimado = '00:00';
+        $tiempoEstimado = '';
         $valorTotal = 0;
         foreach ($productos as $e)
         {
             $idProducto = $e['ID_Producto'];
             $cantidad = $e['Cantidad'];
             $producto = Producto::BuscarProductoID($idProducto);
-            //$tiempoEstimado = self::CalcularTiempoEstimado($tiempoEstimado, $producto[0]->Tiempo);
             $pedido[] = [
                 'Producto' => $producto[0]->Nombre,
                 'Cantidad' => $cantidad,
@@ -48,7 +47,6 @@ class Pedido
     public static function BajaPedido($idPedido)
     {
         $estado = 'Cancelado';
-        //PARA REPONER LOS PRODUCTOS AL STOCK MULTIPLICAR POR -1 LOS PRODUCTOS Y ACTUALIZAR STOCK 
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta(
             "UPDATE Pedido SET Estado = :estado WHERE ID = :idPedido"
@@ -62,7 +60,7 @@ class Pedido
     {
         $pedido = array();
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $tiempoEstimado = '00:00';
+        $tiempoEstimado = '';
         $valorTotal = 0;
         foreach ($productos as $e)
         {
@@ -72,7 +70,6 @@ class Pedido
             $sector = $producto->Sector;
             $estado = 'Pedido';
             $cantidad = $e['Cantidad'];
-            $tiempoEstimado = self::CalcularTiempoEstimado($tiempoEstimado, $producto->Tiempo);
             $pedido[] = [
                 'Producto' => $productoNombre,
                 'Cantidad' => $cantidad,
@@ -172,18 +169,6 @@ class Pedido
             "SELECT * FROM Pedido WHERE ID = :idPedido"
         );
         $consulta->bindValue(':idPedido', $idPedido, PDO::PARAM_STR);
-        $consulta->execute();
-
-        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Pedido');
-    }
-
-    public static function TraerPedidoPorClave($clave)
-    {
-        $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta(
-            "SELECT * FROM Pedido WHERE CodigoUnico = :clave"
-        );
-        $consulta->bindValue(':clave', $clave, PDO::PARAM_STR);
         $consulta->execute();
 
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'Pedido');

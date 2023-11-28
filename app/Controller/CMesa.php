@@ -36,7 +36,7 @@ class CMesa
         $parametros = $request->getParsedBody();
         $idMesa = $parametros['ID_Mesa'];
         $idPedido = $parametros['ID_Pedido'];
-        if (Mesa::ExisteMesa($idMesa) && Mesa::MesaLibre($idMesa))
+        if (Mesa::ExisteMesa($idMesa))
         {
             if (Pedido::ExistePedido($idPedido))
             {
@@ -54,7 +54,7 @@ class CMesa
                 try
                 {
                     Mesa::AltaMesa($idMesa, $idPedido);
-                    $payload = json_encode("La mesa {$idMesa} esta siendo atendida");
+                    $payload = json_encode("La mesa $idMesa con pedido $idPedido esta siendo atendida");
                     $response->getBody()->write($payload);
                     return $response->withHeader('Content-Type', 'application/json');
                 }
